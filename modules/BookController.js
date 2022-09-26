@@ -19,5 +19,18 @@ export default class BooktoDom {
           `;
   }
 
+  static checkStorage(target) {
+    const dataStored = localStorage.getItem('books');
+    if (dataStored) {
+      const books = JSON.parse(dataStored);
+      target.innerHTML = '';
+      for (let key in books) {
+        target.innerHTML += BooktoDom.append(key, books[key]);
+      }
+      BooktoDom.deleteBook();
+      // BooktoDom.editBook();
+    } else {
+      target.innerHTML = `<tr> <td colspan="4">Nothing to show </td> <tr>`;
+    }
+  }
 
-}
