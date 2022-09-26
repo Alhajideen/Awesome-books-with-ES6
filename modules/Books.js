@@ -22,4 +22,26 @@ export default class Book {
     books.push(this);
     localStorage.setItem('books', JSON.stringify(books));
   }
+
+  static deleteBook(btn, container) {
+    btn.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        element.parentNode.parentNode.remove();
+        const books = JSON.parse(localStorage.getItem('books'));
+        if (books.length > 1) {
+          const deleted = books[index];
+          let newBook = books.filter(function (e) {
+            return e != deleted;
+          });
+          localStorage.setItem('books', JSON.stringify(newBook));
+        } else {
+          let newBook = [];
+          localStorage.setItem('books', JSON.stringify(newBook));
+          const listContainer = document.querySelector('.books-list');
+          listContainer.innerHTML =
+            '<tr> <td colspan="4">Nothing to show </td> <tr>';
+        }
+      });
+    });
+  }
 }

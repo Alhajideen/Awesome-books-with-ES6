@@ -7,6 +7,8 @@ const pages = document.querySelectorAll('.list-item');
 const container = document.getElementById('app');
 const myList = new List();
 container.innerHTML = myList.content;
+myList.active();
+myList.removal();
 
 pages.forEach((item) => {
   item.addEventListener('click', (e) => {
@@ -17,8 +19,7 @@ pages.forEach((item) => {
           const myList = new List();
           container.innerHTML = myList.content;
           myList.active();
-          myList.deleteBook();
-          myList.editBook();
+          myList.removal();
         }
         break;
       case 'form':

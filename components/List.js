@@ -1,5 +1,5 @@
 import BooktoDom from '../modules/BookController.js';
-import Book from '../modules/Books.js';
+import Books from '../modules/Books.js';
 
 export default class List {
   constructor() {
@@ -18,8 +18,7 @@ export default class List {
                 <tbody class="books-list">
                     <!-- Books list will be appended here -->
                 </tbody>
-            </table>
-          
+            </table> 
         </section>
         `;
   }
@@ -29,10 +28,10 @@ export default class List {
   }
 
   active() {
+    const listContainer = document.querySelector('.books-list');
     const dataStored = localStorage.getItem('books');
     const books = JSON.parse(dataStored);
-    const listContainer = document.querySelector('.books-list');
-    if (books) {
+    if (books.length > 0) {
       for (const item in books) {
         listContainer.innerHTML += BooktoDom.append(item, books[item]);
       }
@@ -41,42 +40,10 @@ export default class List {
         '<tr> <td colspan="4">Nothing to show </td> <tr>';
     }
   }
-  deleteBook() {
+
+  removal() {
     const delBtn = document.querySelectorAll('.delete-btn');
-    delBtn.forEach((element, index) => {
-      element.addEventListener('click', () => {
-        element.parentNode.parentNode.remove();
-        const books = JSON.parse(localStorage.getItem('books'));
-        console.log('before=' + books);
-
-        if (books.length > 1) {
-          const deleted = books[index];
-          let newBook = books.filter(function (e) {
-            return e != deleted;
-          });
-          localStorage.setItem('books', JSON.stringify(newBook));
-        } else {
-          let newBook = [];
-          localStorage.setItem('books', JSON.stringify(newBook));
-        }
-        console.log('after=' + newBook);
-      });
-    });
-  }
-
-  editBook() {
-    const editBtn = document.querySelectorAll('.edit-btn');
-    const form = document.querySelector('form');
-    const title = document.querySelector('.edit-title');
-    const author = document.querySelector('.edit-author');
-    const books = JSON.parse(localStorage.getItem('books'));
-    const update = document.querySelector('.update-btn');
-    editBtn.forEach((elem, index) => {
-      elem.addEventListener('click', () => {
-        title.value = books[index]._title;
-        author.value = books[index]._author;
-        update.addEventListener('click', () => {});
-      });
-    });
+    const listContainer = document.querySelector('.books-list');
+    Books.deleteBook(delBtn, listContainer);
   }
 }
