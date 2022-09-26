@@ -19,6 +19,7 @@ export default class Form {
                         </button>
                     </div>
                 </form>
+                <h1 class="success"></h1>
                 </div>
         </section>
         `;
@@ -36,9 +37,18 @@ export default class Form {
       const bookTitle = title.value;
       const bookAuthor = author.value;
       const newBook = new Book(bookTitle, bookAuthor);
+      Form.success();
       newBook.addBook();
       title.value = '';
       author.value = '';
     });
+  }
+
+  static success() {
+    const success = document.querySelector('.success');
+    success.innerHTML = 'Book added successfully';
+    setTimeout(() => {
+      success.innerHTML = '';
+    }, 2000);
   }
 }
