@@ -1,2 +1,2 @@
-/modules/Books.js
-/modules/BookController.js
+/modules/*.js
+/components/*js
