@@ -216,3 +216,11 @@ footer {
 footer p {
   color: var(--clr-neutral-300);
 }
+
+.time {
+  width: 87%;
+  margin: auto;
+  margin-top: 85px;
+  display: flex;
+  justify-content: flex-end;
+}
