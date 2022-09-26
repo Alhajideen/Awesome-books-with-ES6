@@ -15,7 +15,7 @@ export default class Form {
                     </div>
                     <div class="form-control my-3">
                         <button type="submit" class="btn border">Add
-                            <img width="20" height="20" class="icon" src="./src/icon/submit-icon.svg" alt="submit-icon">
+                            <img width="20" height="20" class="icon" src="../img/submit-icon.svg" alt="submit-icon">
                         </button>
                     </div>
                 </form>

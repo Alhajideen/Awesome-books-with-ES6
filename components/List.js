@@ -17,9 +17,6 @@ export default class List {
                 </thead>
                 <tbody class="books-list">
                     <!-- Books list will be appended here -->
-                    <input type='text' class="edit-title"  placeholder="Book Title"/> <br/>
-                    <input type='text' class="edit-author"  placeholder="Book Title"/>
-                    <button class="update-btn">Update Book</button>
                 </tbody>
             </table>
           
