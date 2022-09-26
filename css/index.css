@@ -34,7 +34,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-height: 70vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -221,6 +221,6 @@ footer p {
   width: 87%;
   margin: auto;
   margin-top: 85px;
-  display: flex;
+  display: flex !important;
   justify-content: flex-end;
 }
