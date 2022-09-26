@@ -33,4 +33,15 @@ export default class BooktoDom {
       target.innerHTML = `<tr> <td colspan="4">Nothing to show </td> <tr>`;
     }
   }
-
+  deleteBook() {
+    const delBtn = document.querySelectorAll('.delete-btn');
+    delBtn.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        element.parentNode.parentNode.remove();
+        const books = JSON.parse(localStorage.getItem('books'));
+        books.splice(index, 1);
+        localStorage.setItem('books', JSON.stringify(books));
+      });
+    });
+  }
+}
