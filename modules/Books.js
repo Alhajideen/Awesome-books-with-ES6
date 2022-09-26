@@ -30,7 +30,7 @@ export default class Book {
         const books = JSON.parse(localStorage.getItem('books'));
         if (books.length > 1) {
           const deleted = books[index];
-          let newBook = books.filter(function (e) {
+          let newBook = books.filter((e)=> {
             return e != deleted;
           });
           localStorage.setItem('books', JSON.stringify(newBook));
