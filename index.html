@@ -14,6 +14,56 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    <header>
+      <nav class="main-header">
+        <a class="logo" href="javascript:void(0)">Awesome Book</a>
+        <ul class="nav-menu">
+          <li>
+            <a class="list-item" href="javascript:void(0)" data-display="list"
+              >List</a
+            >
+          </li>
+          <li>
+            <a class="list-item" href="javascript:void(0)" data-display="form"
+              >Add New</a
+            >
+          </li>
+          <li>
+            <a
+              class="list-item"
+              href="javascript:void(0)"
+              data-display="contact"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="app" class="full-height">
+      <section class="card" aria-labelledby="project-name">
+        <h1 id="project-name" class="text-center primary-heading">
+          All Awesome Books
+        </h1>
+
+        <table class="table my-3 px-3 py-3 border">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="books-list">
+            <!-- Books list will be appended here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>Copy Right are reserved</p>
+    </footer>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
